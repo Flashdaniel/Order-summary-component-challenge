@@ -1,70 +1,268 @@
-# Getting Started with Create React App
+# Frontend Mentor - Order summary card solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Order summary card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/order-summary-component-QlPmajDUj). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### The challenge
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- See hover states for interactive elements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+![](https://i.im.ge/2021/10/13/or7WQ9.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Links
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Live Site URL: [https://quirky-wilson-c38124.netlify.app/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## My process
 
-### `npm run eject`
+### Built with
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Material-ui
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What I learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I learnt how properly to style and override style to my advantage using material-ui new features.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```Card.js
+import React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import heroTop from "../images/illustration-hero.svg";
+import { Button, Link } from "@mui/material";
+import musicIcon from "../images/icon-music.svg";
+import "./Card.css";
 
-## Learn More
+function Card() {
+  return (
+    <Box sx={cardContainer}>
+      <Box
+        component="img"
+        sx={cardImage}
+        alt="person makign order"
+        src={heroTop}
+      />
+      <Box sx={cardTextContainer}>
+        <Typography variant="body1" component="h1" gutterBottom>
+          <Box sx={cardTextHeading}>Order Summay</Box>
+        </Typography>
+        <Typography variant="subtitle1" component="h5">
+          <Box sx={cardTextSubtitle}>
+            You can now listen to millions of songs, audiobooks, and podcasts on
+            any device anywhere you like!
+          </Box>
+        </Typography>
+      </Box>
+      <Box sx={{ p: "2rem", pt: 0 }}>
+        <Box sx={cardMusicContainer}>
+          <Box component="img" alt="play music icon" src={musicIcon} />
+          <Box>
+            <Typography variant="body2" component="h2">
+              <Box sx={cardMusicHeading}>Annual Plan</Box>
+            </Typography>
+            <Typography variant="subtitle2" component="h5">
+              <Box sx={cardTextSubtitle}>$99.99/year</Box>
+            </Typography>
+          </Box>
+          <Link href="#" sx={cardMusicLink}>
+            change
+          </Link>
+        </Box>
+      </Box>
+      <Box sx={{ p: "2rem", pt: 0 }}>
+        <Box sx={{ textAlign: "center" }}>
+          <Button
+            variant="contained"
+            className="button"
+            sx={{
+              backgroundColor: "hsl(245, 75%, 52%)",
+              p: "10px 30px",
+              borderRadius: "10px",
+              mb: "1rem",
+              fontWeight: 900,
+              fontFamily: "Red Hat Display",
+              textTransform: "none",
+              boxShadow: 20,
+              fontSize: "16px",
+              "&:hover": {
+                opacity: 0.7,
+                backgroundColor: "hsl(245, 75%, 52%)",
+              },
+            }}
+            fullWidth
+          >
+            Proceed to Payment
+          </Button>
+          <Button
+            fullWidth
+            sx={{
+              fontFamily: "Red Hat Display",
+              textTransform: "none",
+              fontSize: "16px",
+              fontWeight: 900,
+              p: "1rem",
+              color: "hsl(223, 47%, 23%)",
+              opacity: 0.8,
+              "&:hover": {
+                opacity: 1,
+                backgroundColor: "transparent",
+                color: "hsl(223, 47%, 23%)",
+              },
+            }}
+          >
+            Cancel Order
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const cardContainer = {
+  borderRadius: "20px",
+  backgroundColor: "#fff",
+  mx: "auto",
+  display: "flex",
+  flexDirection: "column",
+  fontSize: "16px",
+  fontWeight: 500,
+  fontFamily: "Red Hat Display",
+  maxWidth: "400px",
+};
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const cardImage = {
+  width: "100%",
+  height: 180,
+  borderTopRightRadius: "20px",
+  borderTopLeftRadius: "20px",
+  display: "block",
+};
 
-### Code Splitting
+const cardTextContainer = {
+  p: "2rem",
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const cardTextHeading = {
+  textAlign: "center",
+  fontWeight: 900,
+  fontSize: "22px",
+  color: "hsl(223, 47%, 23%)",
+  opacity: 0.9,
+  mb: 2,
+  fontFamily: "inherit",
+};
 
-### Analyzing the Bundle Size
+const cardTextSubtitle = {
+  textAlign: "center",
+  color: "hsl(224, 23%, 55%)",
+  opacity: 0.8,
+  fontSize: "16px",
+  fontFamily: "inherit",
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+const cardMusicContainer = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  backgroundColor: "hsl(225, 100%, 98%)",
+  p: "1rem",
+  borderRadius: "10px",
+  fontFamily: "inherit",
+};
 
-### Making a Progressive Web App
+const cardMusicHeading = {
+  fontSize: "1rem",
+  color: "hsl(223, 47%, 23%)",
+  opacity: 0.9,
+  textAlign: "center",
+  fontWeight: 900,
+  fontFamily: "inherit",
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+const cardMusicLink = {
+  fontSize: "16px",
+  fontWeight: 900,
+  color: "hsl(245, 75%, 52%)",
+  fontFamily: "inherit",
+  "&:hover": {
+    opacity: 0.6,
+    color: "hsl(245, 75%, 52%)",
+  },
+  textDecoration: "underline",
+};
 
-### Advanced Configuration
+export default Card;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+```App.js
+import "./App.css";
+import Card from "./components/Card";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import bgImage from "./images/pattern-background-mobile.svg";
+import bgImage1 from "./images/pattern-background-desktop.svg";
 
-### Deployment
+function App() {
+  return (
+    <Box
+      sx={{
+        height: "100vh",
+        backgroundImage: { xs: `url(${bgImage})`, md: `url(${bgImage1})` },
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+        backgroundPosition: { xs: "0px", md: "0px" },
+        p: "2rem",
+      }}
+    >
+      <CssBaseline />
+      <Card />
+    </Box>
+  );
+}
 
-### `npm run build` fails to minify
+export default App;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+```js
+const proudOfThisFunc = () => {
+  console.log('🎉')
+}
+```
+
+### Continued development
+
+This project can be better than this and the code can be organzied more better than this but i won't be adding any more work to it. If you have any contribution to make it better i will be appricaite it.
+
+
+## Author
+
+- Website - [Daniel Nweze](https://daniel-nweze.netlify.app/)
+- Frontend Mentor - [@Flashdaniel](https://www.frontendmentor.io/profile/Flashdaniel)
+- Linkdin- (https://www.linkedin.com/in/daniel-nweze-017909214/)
+
+
+## Acknowledgments
+
+I Thank God almight for his help and grace to work on this project.
