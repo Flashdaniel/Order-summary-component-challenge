@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./components/Card";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import bgImage from "./images/pattern-background-mobile.svg";
+import bgImage1 from "./images/pattern-background-desktop.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        height: "100vh",
+        backgroundImage: { xs: `url(${bgImage})`, md: `url(${bgImage1})` },
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+
+        backgroundPosition: { xs: "0px", md: "0px" },
+        p: "2rem",
+      }}
+    >
+      <CssBaseline />
+      <Card />
+    </Box>
   );
 }
 
